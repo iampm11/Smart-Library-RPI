@@ -31,27 +31,27 @@ def removeBook(name,tag):
         arr.remove(tag)
         data[0]["Location"]["Shelf " + str(shelf_number)] = arr
         updateurl = "https://fv3md359db.execute-api.ap-south-1.amazonaws.com/final/updatebook"
-            newData = {
-                "bookname" : name,
-                    "book" : data[0]["Location"]
-                        }
-                            print(newData)
-                            r = requests.post(updateurl, json=newData)
-                            print(r)
+        newData = {
+             "bookname" : name,
+             "book" : data[0]["Location"]
+               }
+        print(newData)
+        r = requests.post(updateurl, json=newData)
+        print(r)
 
 def updateData(tag,regno):
     if "Issued" not in  booksData[index]:
         booksData[index]['Issued'] = {}
-            old_json = booksData[index]['Issued']
-            old_json[tag] = regno
-            data={
-                "bookname" : book_to_remove,
-                    "updated" : old_json
-                        }
-                            print(data)
-                            url = "https://fv3md359db.execute-api.ap-south-1.amazonaws.com/final/updatebookinrecord"
-                                r = requests.post(url, json=data)
-                                print(r)
+        old_json = booksData[index]['Issued']
+        old_json[tag] = regno
+        data={
+         "bookname" : book_to_remove,
+         "updated" : old_json
+        }
+        print(data)
+        url = "https://fv3md359db.execute-api.ap-south-1.amazonaws.com/final/updatebookinrecord"
+        r = requests.post(url, json=data)
+        print(r)
 
 
 while True:
