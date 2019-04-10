@@ -22,7 +22,7 @@ def findNameFromTag(tag):
             return booksData[i]["Name"]
 
 def removeBook(name,tag):
-    url = "https://fv3md359db.execute-api.ap-south-1.amazonaws.com/final/readlocation?find=" + name
+        url = "https://fv3md359db.execute-api.ap-south-1.amazonaws.com/final/readlocation?find=" + name
         r = requests.get(url)
         data=json.loads(r.text)
         print(name)
